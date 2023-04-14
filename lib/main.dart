@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
       timer.cancel();
       setState(() {
         isRunning = false;
-        totalSeconds = timers[selectedIndex];
+        totalSeconds = timers[selectedIndex] * 60;
         totalPomodoros = 0;
         isBreakTime = false;
       });
@@ -392,7 +392,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   IconButton(
-                    iconSize: 32,
+                    iconSize: 28,
                     color: Theme.of(context).cardColor,
                     onPressed: onClickReset,
                     icon: const Icon(
@@ -402,7 +402,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Center(
                     child: IconButton(
                       color: Colors.black26,
-                      iconSize: 100,
+                      iconSize: 90,
                       onPressed: isRunning ? onPausePressed : onStartPressed,
                       icon: Icon(
                         isRunning ? Icons.pause_circle_filled : Icons.play_circle_filled,
@@ -487,9 +487,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 20,
           ),
         ],
       ),
